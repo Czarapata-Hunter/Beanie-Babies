@@ -3,18 +3,22 @@ import { getBeanies } from './fetch-utils.js';
 import { renderBeanie } from './render-utils.js';
 import { renderAstrologySignOption } from './render-utils.js';
 import { getAstrologySigns } from './fetch-utils.js';
+
 /* Get DOM Elements */
 const beanieList = document.getElementById('listed-beanie');
 const notificationDisplay = document.getElementById('notification-display');
 const astrologySelect = document.getElementById('astrology-select');
+const formSearch = document.getElementById('form-search');
+
 /* State */
 let beanies = [];
 let error = null;
 let count = 0;
 let astrologySigns = [];
+
 /* Events */
 window.addEventListener('load', async () => {
-    findBeanies();
+    // findBeanies();
     const response = await getAstrologySigns();
 
     error = response.error;
@@ -25,8 +29,8 @@ window.addEventListener('load', async () => {
     }
 });
 
-async function findBeanies(name) {
-    const response = await getBeanies(name);
+async function findBeanies(name, astrologySign) {
+    const response = await getBeanies(name, astrologySign);
 
     error = response.error;
     beanies = response.data;
@@ -36,6 +40,13 @@ async function findBeanies(name) {
         displayBeanies();
     }
 }
+
+formSearch.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(formSearch);
+    findBeanies(formData.get('name'), formData.get('astrologySign'));
+});
+
 /* Display Functions */
 function displayBeanies() {
     beanieList.innerHTML = '';

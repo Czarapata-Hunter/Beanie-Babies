@@ -24,14 +24,14 @@ export function renderBeanie(beanie) {
     const animal = document.createElement('span');
     animal.textContent = beanie.animal;
 
-    attributes.append(animal, subtheme, astrologySign);
-
     const img = document.createElement('img');
     img.src = beanie.image;
     img.alt = beanie.title;
 
     const content = document.createElement('div');
     content.classList.add('content');
+
+    attributes.append(animal, subtheme, astrologySign);
 
     const released = document.createElement('p');
     released.classList.add('released');
