@@ -33,6 +33,7 @@ async function findBeanies(name, astrologySign) {
     const response = await getBeanies(name, astrologySign);
 
     error = response.error;
+    count = response.count;
     beanies = response.data;
 
     displayNotifications();
