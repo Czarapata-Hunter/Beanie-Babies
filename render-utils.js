@@ -1,3 +1,10 @@
+export function renderAstrologySignOption(astrologySign) {
+    const option = document.createElement('option');
+    option.value = astrologySign.name;
+    option.textContent = astrologySign.name;
+    return option;
+}
+
 export function renderBeanie(beanie) {
     const li = document.createElement('li');
     li.classList.add('card');
