@@ -26,3 +26,38 @@
     height: 50px;
     font-size: 18px;
 }
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.card {
+    background: grey;
+    align-content: center;
+
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    align-self: center;
+    justify-self: center;
+
+    padding: 2px;
+
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    contain: content;
+
+    font-size: 12px;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 50% 1fr 1fr;
+}
